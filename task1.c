@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
     while (*ptr != '\0')
     {
 	if (*ptr == '%')
-    }
+	{
     	ptr++;
             if (*ptr == 'c')
             {
