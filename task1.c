@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include "main.h"
 
 int _printf(const char *format, ...)
 {
@@ -53,12 +54,4 @@ int _printf(const char *format, ...)
     va_end(args);
 
     return num_chars_printed;
-}
-int main()
-{
-    _printf("Hello, %s! Today is %s.\n", "James", "Wednesday");
-    _printf("The value of x is %d.\n", 42);
-    _printf("Printing a percent sign: %%\n");
-
-    return 0;
 }
