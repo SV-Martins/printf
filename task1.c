@@ -40,7 +40,14 @@ int _printf(const char *format, ...)
                 putchar('%');
                 num_chars_printed++;
             }
-        }
+	    else if (*ptr == 'd' || *ptr == 'i')
+            {
+                /* Print an integer*/
+                int value = va_arg(args, int);
+                printf("%d", value);
+                num_chars_printed += printf("%d", value);
+            }
+	}
         else
         {
             /* Print any non-format specifier characters*/
