@@ -11,8 +11,8 @@ int _printf(const char *format, ...)
 	int num_chars_printed = 0;
 	const char *ptr = format;
 	va_list args;
-
 	va_start(args, format);
+
 	while (*ptr != '\0')
 	{
 		if (*ptr == '%')
@@ -22,7 +22,6 @@ int _printf(const char *format, ...)
 			{
 				/* Print a single character*/
 				char c = (char)va_arg(args, int);
-
 				putchar(c);
 				num_chars_printed++;
 			}
@@ -32,7 +31,6 @@ int _printf(const char *format, ...)
 				 char *str = va_arg(args, char *);
 				 if (str == NULL)
 					str = "(null)";
-
 				while (*str != '\0')
 				{
 					putchar(*str);
@@ -50,7 +48,6 @@ int _printf(const char *format, ...)
 			{
 				/* Print an integer*/
 				int value = va_arg(args, int);
-
 				printf("%d", value);
 				num_chars_printed++;
 			}
@@ -71,5 +68,6 @@ int _printf(const char *format, ...)
 		ptr++;
 	}
 	va_end(args);
-	return (num_chars_printed);
+	
+	return num_chars_printed;
 }
