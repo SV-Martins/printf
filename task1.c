@@ -67,7 +67,7 @@ int _printf(const char *format, ...)
 				/* Print any other value */
 				putchar('%');
 				putchar(*ptr);
-				num_chars_printed++;
+				num_chars_printed += 2;
 			}
 		}
 		else
