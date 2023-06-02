@@ -47,7 +47,7 @@ int _printf(const char *format, ...)
 				putchar('%');
 				num_chars_printed++;
 			}
-			if (*ptr == '!')
+			else if (*ptr == '!')
 	    		{
 				putchar('!');
 				num_chars_printed++;
