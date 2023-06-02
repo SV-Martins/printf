@@ -1,12 +1,17 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "main.h"
+/**
+ * _printf - handling conversions
+ * @format: character holding the value
+ * Return: value (success)
+ */
 int _printf(const char *format, ...)
 {
 	int num_chars_printed = 0;
 	const char *ptr = format;
 	va_list args;
-	
+
 	va_start(args, format);
 	while (*ptr != '\0')
 	{
@@ -45,6 +50,13 @@ int _printf(const char *format, ...)
 				int value = va_arg(args, int);
 
 				printf("%d", value);
+				num_chars_printed++;
+			}
+			else
+			{
+				/* Print any other value */
+				putchar('%');
+				putchar(*ptr);
 				num_chars_printed++;
 			}
 		}
