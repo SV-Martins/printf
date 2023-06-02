@@ -8,13 +8,16 @@
  */
 int _printf(const char *format, ...)
 {
+	if (format == NULL)
+       	{
+		printf("Error: format string is NULL.\n");
+		return -1;
+	}
+
 	int num_chars_printed = 0;
 	const char *ptr = format;
 	va_list args;
 	va_start(args, format);
-
-	if (format == NULL)
-        return 0;
 	
 	while (*ptr != '\0')
 	{
