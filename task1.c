@@ -29,7 +29,9 @@ int _printf(const char *format, ...)
 			else if (*ptr == 's')
 			{
 				/* Print a string*/
-				const char *str = va_arg(args, const char *);
+				 char *str = va_arg(args, char *);
+				 if (str == NULL)
+					str = "(null)";
 
 				while (*str != '\0')
 				{
