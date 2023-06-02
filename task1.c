@@ -91,7 +91,6 @@ int _printf(const char *format, ...)
 				putchar('%');
 				putchar(*ptr);
 				num_chars_printed += 2;
-				return (-1);
 			}
 		}
 		else
