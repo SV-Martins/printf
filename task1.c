@@ -83,7 +83,7 @@ int _printf(const char *format, ...)
 				countP += putchar(((a / countnum) % 10) + '0');
 				countnum /= 10;
 			}
-			num_chars_printed++;
+			num_chars_printed += 2;
 			}
 			else
 			{
