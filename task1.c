@@ -58,10 +58,32 @@ int _printf(const char *format, ...)
 			}
 			else if (*ptr == 'd' || *ptr == 'i')
 			{
-				/* Print an integer*/
-				int value = va_arg(args, int);
-				printf("%d", value);
-				num_chars_printed++;
+				/* Print a decimal */
+			unsigned int a, b, countnum, countP;
+			int hold;
+
+			countP = 0;
+			hold = va_arg(args, int);
+			if (hold < 0)
+			{
+				a = (hold * -1);
+				countP += putchar('-');
+			}
+			else
+			a = hold;
+			b = a;
+			countnum = 1;
+			while (b > 9)
+			{
+				b /= 10;
+				countnum *= 10;
+			}
+			while (countnum >= 1)
+			{
+				countP += putchar(((a / countnum) % 10) + '0');
+				countnum /= 10;
+			}
+			num_chars_printed++;
 			}
 			else
 			{
@@ -69,6 +91,7 @@ int _printf(const char *format, ...)
 				putchar('%');
 				putchar(*ptr);
 				num_chars_printed += 2;
+				return (-1);
 			}
 		}
 		else
