@@ -47,6 +47,11 @@ int _printf(const char *format, ...)
 				putchar('%');
 				num_chars_printed++;
 			}
+			if (*ptr == '!')
+	    		{
+				putchar('!');
+				num_chars_printed++;
+			}
 			else if (*ptr == 'd' || *ptr == 'i')
 			{
 				/* Print an integer*/
